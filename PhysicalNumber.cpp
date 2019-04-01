@@ -18,5 +18,5 @@ PhysicalNumber ariel::PhysicalNumber:: operator+(const PhysicalNumber& r,const P
 PhysicalNumber ariel::PhysicalNumber:: operator+= (const PhysicalNumber& l,const PhysicalNumber& r);
 PhysicalNumber ariel::PhysicalNumber:: operator-(const PhysicalNumber& l,const PhysicalNumber& r);
 PhysicalNumber ariel::PhysicalNumber:: operator-= (const PhysicalNumber& l,const PhysicalNumber& r);
-istream ariel::PhysicalNumber:: operator>> (PhysicalNumber& f);
-ostream ariel::PhysicalNumber:: operator<< (PhysicalNumber& f);
+istream ariel::PhysicalNumber:: operator>> (istream& input,PhysicalNumber& f);
+ostream ariel::PhysicalNumber:: operator<< (ostream& output,PhysicalNumber& f);

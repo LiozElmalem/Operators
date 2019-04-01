@@ -27,3 +27,4 @@ class PhysicalNumber{
      friend ostream operator<< (PhysicalNumber& f);
 
 };
+};
