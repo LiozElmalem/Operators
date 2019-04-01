@@ -3,20 +3,18 @@
 
 using namespace std;
 
-ariel::PhysicalNumber::PhysicalNumber(int n,Unit unit){
-  this->unit = unit;
-  this->n = n;
+ariel::PhysicalNumber::PhysicalNumber(int n,ariel::Unit unit){
 }
-bool ariel::PhysicalNumber:: operator>(const PhysicalNumber& l,const PhysicalNumber& r);
-bool ariel::PhysicalNumber:: operator<(const PhysicalNumber& l,const PhysicalNumber& r);
-bool ariel::PhysicalNumber:: operator>=(const PhysicalNumber& l,const PhysicalNumber& r);
-bool ariel::PhysicalNumber:: operator<=(const PhysicalNumber& l,const PhysicalNumber& r);
-bool ariel::PhysicalNumber:: operator==(const PhysicalNumber& l,const PhysicalNumber& r);
-PhysicalNumber ariel::PhysicalNumber:: operator--(const PhysicalNumber& l);
-PhysicalNumber ariel::PhysicalNumber:: operator++(const PhysicalNumber& l);
-PhysicalNumber ariel::PhysicalNumber:: operator+(const PhysicalNumber& r,const PhysicalNumber& r);
-PhysicalNumber ariel::PhysicalNumber:: operator+= (const PhysicalNumber& l,const PhysicalNumber& r);
-PhysicalNumber ariel::PhysicalNumber:: operator-(const PhysicalNumber& l,const PhysicalNumber& r);
-PhysicalNumber ariel::PhysicalNumber:: operator-= (const PhysicalNumber& l,const PhysicalNumber& r);
-istream ariel::PhysicalNumber:: operator>> (istream& input,PhysicalNumber& f);
-ostream ariel::PhysicalNumber:: operator<< (ostream& output,PhysicalNumber& f);
+bool ariel::PhysicalNumber:: operator> (const ariel::PhysicalNumber& l);
+bool ariel::PhysicalNumber:: operator< (const ariel::PhysicalNumber& l);
+bool ariel::PhysicalNumber:: operator>= (const ariel::PhysicalNumber& l);
+bool ariel::PhysicalNumber:: operator<= (const ariel::PhysicalNumber& l);
+bool ariel::PhysicalNumber:: operator== (const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber ariel::PhysicalNumber:: operator++(const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber ariel::PhysicalNumber:: operator--(const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber& ariel::PhysicalNumber:: operator+ (const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber& ariel::PhysicalNumber:: operator+= (const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber& ariel::PhysicalNumber:: operator- (const ariel::PhysicalNumber& l);
+ariel::PhysicalNumber& ariel::PhysicalNumber:: operator-= (const ariel::PhysicalNumber& l);
+istream& ariel::PhysicalNumber:: operator >> (istream & is,ariel::PhysicalNumber& f);
+ostream& ariel::PhysicalNumber:: operator<<(ostream & os,ariel::PhysicalNumber& f);
