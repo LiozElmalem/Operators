@@ -12,6 +12,7 @@ class PhysicalNumber{
   public:
      PhysicalNumber(int n,ariel::Unit unit);
      ~PhysicalNumber();
+     friend string unit_type(int unit);
      friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
      friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
      friend bool operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
@@ -27,6 +28,11 @@ class PhysicalNumber{
   	 friend PhysicalNumber operator -= (const PhysicalNumber& l,const PhysicalNumber& r);
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
+     int getUnit(){
+       return unit;
+     }
+     int getN(){
+       return n;
+     }
 };
 };
-

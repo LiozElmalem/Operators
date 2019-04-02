@@ -1,17 +1,21 @@
-#include <iostream>
 #pragma once
+
+#include <iostream>
 using namespace std;
 
 namespace ariel {
+
+  // present some Unit types
+
   enum Unit{
-    M,
-    KM,
+    M,  // LENGTH
     CM,
-    SEC,
+    KM,//
+    SEC, // TIME
     MIN,
-    HOUR,
-    G,
+    HOUR,//
+    G, // WEIGHT
     KG,
-    TON
+    TON//
 };
 };
