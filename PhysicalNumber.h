@@ -28,8 +28,11 @@ class PhysicalNumber{
      friend PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
   	 friend PhysicalNumber operator += (const PhysicalNumber& l,const PhysicalNumber& r);
   	 friend PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend PhysicalNumber operator - (const PhysicalNumber& l);
+     friend PhysicalNumber operator + (const PhysicalNumber& l);
   	 friend PhysicalNumber operator -= (const PhysicalNumber& l,const PhysicalNumber& r);
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
 };
 };
+
