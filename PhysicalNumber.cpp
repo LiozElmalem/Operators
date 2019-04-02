@@ -15,5 +15,7 @@ PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
 PhysicalNumber operator += (const PhysicalNumber& l,const PhysicalNumber& r);
 PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
 PhysicalNumber operator -= (const PhysicalNumber& l,const PhysicalNumber& r);
+PhysicalNumber operator - (const PhysicalNumber& l);
+PhysicalNumber operator + (const PhysicalNumber& l);
 istream& operator >> (istream & is,PhysicalNumber& f);
 ostream& operator<<(ostream & os,const PhysicalNumber& f);
