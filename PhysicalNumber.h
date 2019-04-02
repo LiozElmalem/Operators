@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include"Unit.h"
+#include "Unit.h"
 
 using namespace std;
 
@@ -10,14 +10,8 @@ class PhysicalNumber{
     Unit unit;
     int n;
   public:
-    PhysicalNumber(){
-      this->unit = M;
-      this->n = 0;
-    }
-     PhysicalNumber(int n,ariel::Unit unit){
-       this->unit = unit;
-       this->n = n;
-     }
+     PhysicalNumber(int n,ariel::Unit unit);
+     ~PhysicalNumber();
      friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
      friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
      friend bool operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
@@ -35,4 +29,3 @@ class PhysicalNumber{
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
 };
 };
-
