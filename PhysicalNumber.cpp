@@ -2,19 +2,18 @@
 #include"PhysicalNumber.h"
 
 using namespace std;
+using ariel::PhysicalNumber;
 
-ariel::PhysicalNumber::PhysicalNumber(int n,ariel::Unit unit){
-}
-bool ariel::PhysicalNumber:: operator> (const ariel::PhysicalNumber& l);
-bool ariel::PhysicalNumber:: operator< (const ariel::PhysicalNumber& l);
-bool ariel::PhysicalNumber:: operator>= (const ariel::PhysicalNumber& l);
-bool ariel::PhysicalNumber:: operator<= (const ariel::PhysicalNumber& l);
-bool ariel::PhysicalNumber:: operator== (const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber ariel::PhysicalNumber:: operator++(const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber ariel::PhysicalNumber:: operator--(const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber& ariel::PhysicalNumber:: operator+ (const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber& ariel::PhysicalNumber:: operator+= (const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber& ariel::PhysicalNumber:: operator- (const ariel::PhysicalNumber& l);
-ariel::PhysicalNumber& ariel::PhysicalNumber:: operator-= (const ariel::PhysicalNumber& l);
-istream& ariel::PhysicalNumber:: operator >> (istream & is,ariel::PhysicalNumber& f);
-ostream& ariel::PhysicalNumber:: operator<<(ostream & os,ariel::PhysicalNumber& f);
+inline bool PhysicalNumber::operator > (const PhysicalNumber& l,const PhysicalNumber& r);
+inline bool PhysicalNumber::operator < (const PhysicalNumber& l,const PhysicalNumber& r);
+inline bool PhysicalNumber::operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
+inline bool PhysicalNumber::operator <= (const PhysicalNumber& l,const PhysicalNumber& r);
+inline bool PhysicalNumber::operator == (const PhysicalNumber& l,const PhysicalNumber& r);
+inline PhysicalNumber PhysicalNumber::operator ++(PhysicalNumber& l);
+inline PhysicalNumber PhysicalNumber::operator --(PhysicalNumber& l);
+inline PhysicalNumber PhysicalNumber::operator + (const PhysicalNumber& l,const PhysicalNumber& r);
+inline PhysicalNumber PhysicalNumber::operator += (const PhysicalNumber& l,const PhysicalNumber& r);
+inline PhysicalNumber PhysicalNumber::operator - (const PhysicalNumber& l,const PhysicalNumber& r);
+inline PhysicalNumber PhysicalNumber::operator -= (const PhysicalNumber& l,const PhysicalNumber& r);
+inline istream& PhysicalNumber::operator >> (istream & is,PhysicalNumber& f);
+inline ostream& PhysicalNumber::operator<<(ostream & os,const PhysicalNumber& f);

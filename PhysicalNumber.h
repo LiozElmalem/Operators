@@ -3,7 +3,6 @@
 #include"Unit.h"
 
 using namespace std;
-using ariel::Unit;
 
 namespace ariel{
 class PhysicalNumber{
@@ -11,18 +10,25 @@ class PhysicalNumber{
     Unit unit;
     int n;
   public:
-     PhysicalNumber(int n,Unit unit);
-     friend bool operator> (const PhysicalNumber& l);
-     friend bool operator< (const PhysicalNumber& l);
-     friend bool operator>= (const PhysicalNumber& l);
-     friend bool operator<= (const PhysicalNumber& l);
-     friend bool operator== (const PhysicalNumber& l);
-     friend PhysicalNumber operator++(const PhysicalNumber& l);
-     friend PhysicalNumber operator--(const PhysicalNumber& l);
-     friend PhysicalNumber& operator+ (const PhysicalNumber& l);
-  	 friend PhysicalNumber& operator+= (const PhysicalNumber& l);
-  	 friend PhysicalNumber& operator- (const PhysicalNumber& l);
-  	 friend PhysicalNumber& operator-= (const PhysicalNumber& l);
+    PhysicalNumber(){
+      this->unit = M;
+      this->n = 0;
+    }
+     PhysicalNumber(int n,ariel::Unit unit){
+       this->unit = unit;
+       this->n = n;
+     }
+     friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend bool operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend bool operator <= (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend bool operator == (const PhysicalNumber& l,const PhysicalNumber& r);
+     friend PhysicalNumber operator ++(PhysicalNumber& l);
+     friend PhysicalNumber operator --(PhysicalNumber& l);
+     friend PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
+  	 friend PhysicalNumber operator += (const PhysicalNumber& l,const PhysicalNumber& r);
+  	 friend PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
+  	 friend PhysicalNumber operator -= (const PhysicalNumber& l,const PhysicalNumber& r);
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,PhysicalNumber& f);
 };
