@@ -22,7 +22,7 @@ int main() {
     cout << a << endl;   // Prints "2[km]"
     cout << (a+b) << endl;   // Prints "2.3[km]"
     cout << (b-a) << endl;   // Prints "-1700[m]"
-    // cout << (-a) << endl;   // Prints "-2[km]"
+    cout << (-a) << endl;   // Prints "-2[km]"
 
     cout << (a>b) << endl;  // Prints "true"
     cout << (a<=b) << endl;  // Prints "false"
