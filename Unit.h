@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "PhysicalNumber.h"
 using namespace std;
-
 namespace ariel {
 
   // present some Unit types
@@ -18,4 +18,4 @@ namespace ariel {
     KG,
     TON//
 };
-};
+}; 
