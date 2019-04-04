@@ -20,11 +20,11 @@ class PhysicalNumber{
      friend PhysicalNumber operator ++(PhysicalNumber& l);
      friend PhysicalNumber operator --(PhysicalNumber& l);
      friend PhysicalNumber operator + (PhysicalNumber& l,PhysicalNumber& r);
-  	 friend PhysicalNumber operator += (const PhysicalNumber& l,const PhysicalNumber& r);
+  	 friend PhysicalNumber operator += (PhysicalNumber& l,const PhysicalNumber& r);
   	 friend PhysicalNumber operator - (PhysicalNumber& l,PhysicalNumber& r);
      friend PhysicalNumber operator - (PhysicalNumber& l);
      friend PhysicalNumber operator + (const PhysicalNumber& l);
-  	 friend PhysicalNumber operator -= (PhysicalNumber& l,PhysicalNumber& r);
+  	 friend PhysicalNumber operator -= (PhysicalNumber& l,const PhysicalNumber& r);
      friend istream& operator >> (istream & is,PhysicalNumber& f);
      friend ostream& operator<<(ostream & os,const PhysicalNumber& f);
      string get_type(const PhysicalNumber& l);

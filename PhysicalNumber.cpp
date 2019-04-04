@@ -118,17 +118,14 @@ PhysicalNumber ariel::operator + (PhysicalNumber& l,PhysicalNumber& r){
   PhysicalNumber temp(Asize+Bsize,l.get_unit());
   return temp;}
 }
-PhysicalNumber ariel::operator += (const PhysicalNumber& l,const PhysicalNumber& r){
-  return l;
-  // return ariel::operator+(l,r);
-  // return operator+(l,r);
-  // if(get_type(l).compare(get_type(r))!=0){
-  //   throw std::invalid_argument("Exception,they must be from the type");}
-  //   else{
-  //     double Asize=caster(l);
-  //     double Bsize=caster(r);
-  // PhysicalNumber temp(Asize+Bsize,l.get_unit());
-  // return temp;}
+PhysicalNumber ariel::operator += (PhysicalNumber& l,const PhysicalNumber& r){
+   if(get_type(l).compare(get_type(r))!=0){
+    throw std::invalid_argument("Exception,they must be from the type");}
+    else{
+      double Asize=caster(l);
+      double Bsize=caster(r);
+      l.set_number(Asize+Bsize);
+   return l;}
 }
 PhysicalNumber ariel::operator - (PhysicalNumber& l,PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
@@ -143,15 +140,14 @@ PhysicalNumber ariel::operator - (PhysicalNumber& l){
   l.set_number(-l.get_number());
   return l;}
 PhysicalNumber ariel::operator + (const PhysicalNumber& l){return l;}
-PhysicalNumber ariel::operator -= (PhysicalNumber& l,PhysicalNumber& r){
-  return operator-(l,r);
-  // if(get_type(l).compare(get_type(r))!=0){
-  //   throw std::invalid_argument("Exception,they must be from the type");}
-  //   else{
-  //     double Asize=caster(l);
-  //     double Bsize=caster(r);
-  // PhysicalNumber temp(Asize+Bsize,l.get_unit());
-  // return temp;}
+PhysicalNumber ariel::operator -= (PhysicalNumber& l,const PhysicalNumber& r){
+  if(get_type(l).compare(get_type(r))!=0){
+    throw std::invalid_argument("Exception,they must be from the type");}
+    else{
+      double Asize=caster(l);
+      double Bsize=caster(r);
+      l.set_number(Asize+Bsize);
+   return l;}
 }
 istream& ariel::operator >> (istream & is,PhysicalNumber& f){return is;}
 ostream& ariel::operator<<(ostream & os,const PhysicalNumber& f){return os;}
