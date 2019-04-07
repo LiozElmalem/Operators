@@ -8,7 +8,7 @@ using ariel::PhysicalNumber;
 PhysicalNumber::PhysicalNumber(double num,Unit un):n(num),unit(un){}
 PhysicalNumber::~PhysicalNumber(){//להוסיף
 }
-string get_string_unit(PhysicalNumber l){
+string get_string_unit(PhysicalNumber l){ // return the type name
 int x = l.get_unit();
 switch (x) {
   case 0:return "M";
@@ -23,14 +23,15 @@ switch (x) {
 }
 return "";
 }
-string get_type(const PhysicalNumber& l){
+string get_type(const PhysicalNumber& l){ // return the class of the type
   std::string s=get_string_unit(l);
   if(s.compare("M")==0||s.compare("CM")==0||s.compare("KM")==0)return "LENGTH";
   if(s.compare("G")==0||s.compare("KG")==0||s.compare("TON")==0)return "SIZE";
   if(s.compare("SEC")==0||s.compare("MIN")==0||s.compare("HOUR")==0)return "TIME";
   return "";
 }
-double caster(const PhysicalNumber& l){
+double caster(const PhysicalNumber& l){ // to make it easy, this function convert
+  // values between different parameters to generic value
   PhysicalNumber t(l);
   string type=get_type(l);
   if(type.compare("LENGTH")==0){
@@ -70,6 +71,9 @@ double caster(const PhysicalNumber& l){
     }
   }
 }
+
+// the operators
+
 bool ariel::operator > (const PhysicalNumber& l,const PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
     throw std::invalid_argument("Exception,they must be from the type");}
@@ -164,12 +168,17 @@ PhysicalNumber ariel::operator -= (PhysicalNumber& l,const PhysicalNumber& r){
  }
 
 istream& ariel::operator >> (istream & is,PhysicalNumber& f){
-  // cout << "please enter the mount";
-  // is >> f.n;
-  // cout << "please enter the type";
-  // is >> f.unit;
+  cout << "please enter the mount";
+  double x;
+  is >> x;
+  f.n = x;
+  cout << "please enter the type";
+  int un;
+  is >> un;
+  f.unit = (Unit)un;
   return is;
 }
+
 // for the output
 string un(PhysicalNumber l){
 int x = l.get_unit();
@@ -186,7 +195,7 @@ switch (x) {
 }
 return "";
 }
-
+//
 ostream& ariel::operator <<(ostream & os,const PhysicalNumber& f){
   os << f.n << "[" << un(f) << "]";
   return os;
