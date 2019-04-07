@@ -9,7 +9,19 @@ PhysicalNumber::PhysicalNumber(double num,Unit un):n(num),unit(un){}
 PhysicalNumber::~PhysicalNumber(){//להוסיף
 }
 string get_string_unit(PhysicalNumber l){
-return "" + l.get_unit();
+int x = l.get_unit();
+switch (x) {
+  case 0:return "M";
+  case 1:return "CM";
+  case 2:return "KM";
+  case 3:return "SEC";
+  case 4:return "MIN";
+  case 5:return "HOUR";
+  case 6:return "G";
+  case 7:return "KG";
+  case 8:return "TON";
+}
+return "";
 }
 string get_type(const PhysicalNumber& l){
   std::string s=get_string_unit(l);
@@ -55,7 +67,7 @@ double caster(const PhysicalNumber& l){
     }
     else{
       return t.get_number();
-    } 
+    }
   }
 }
 bool ariel::operator > (const PhysicalNumber& l,const PhysicalNumber& r){
@@ -65,7 +77,7 @@ bool ariel::operator > (const PhysicalNumber& l,const PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       return Asize>Bsize;
-    } 
+    }
   }
 bool ariel::operator < (const PhysicalNumber& l,const PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
@@ -74,7 +86,7 @@ bool ariel::operator < (const PhysicalNumber& l,const PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       return Asize<Bsize;
-    } 
+    }
   }
 bool ariel::operator >= (const PhysicalNumber& l,const PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
@@ -83,7 +95,7 @@ bool ariel::operator >= (const PhysicalNumber& l,const PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       return Asize>=Bsize;
-    } 
+    }
   }
 bool ariel::operator <= (PhysicalNumber& l,PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
@@ -92,7 +104,7 @@ bool ariel::operator <= (PhysicalNumber& l,PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       return Asize<=Bsize;
-    } 
+    }
   }
 bool ariel::operator == (const PhysicalNumber& l,const PhysicalNumber& r){
   if(get_type(l).compare(get_type(r))!=0){
@@ -101,7 +113,7 @@ bool ariel::operator == (const PhysicalNumber& l,const PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       return Asize==Bsize;
-    } 
+    }
   }
 PhysicalNumber ariel::operator ++(PhysicalNumber& l){
   l.set_number(l.get_number()+1);
@@ -147,7 +159,35 @@ PhysicalNumber ariel::operator -= (PhysicalNumber& l,const PhysicalNumber& r){
       double Asize=caster(l);
       double Bsize=caster(r);
       l.set_number(Asize+Bsize);
-   return l;}
+    }
+   return l;
+ }
+
+istream& ariel::operator >> (istream & is,PhysicalNumber& f){
+  // cout << "please enter the mount";
+  // is >> f.n;
+  // cout << "please enter the type";
+  // is >> f.unit;
+  return is;
 }
-istream& ariel::operator >> (istream & is,PhysicalNumber& f){return is;}
-ostream& ariel::operator<<(ostream & os,const PhysicalNumber& f){return os;}
+// for the output
+string un(PhysicalNumber l){
+int x = l.get_unit();
+switch (x) {
+  case 0:return "m";
+  case 1:return "cm";
+  case 2:return "km";
+  case 3:return "sec";
+  case 4:return "min";
+  case 5:return "hour";
+  case 6:return "g";
+  case 7:return "kg";
+  case 8:return "ton";
+}
+return "";
+}
+
+ostream& ariel::operator <<(ostream & os,const PhysicalNumber& f){
+  os << f.n << "[" << un(f) << "]";
+  return os;
+}

@@ -13,6 +13,7 @@ int main() {
     PhysicalNumber c(1, Unit::TON);   // 1 ton
     PhysicalNumber d(102, Unit::G);   // 102 g
 
+    cout << a << endl;
 
 
 

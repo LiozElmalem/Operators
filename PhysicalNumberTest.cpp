@@ -24,6 +24,19 @@ int main() {
     PhysicalNumber c(2, Unit::HOUR);
     PhysicalNumber d(30, Unit::MIN);
 
+
+    // for my test under the original test
+    PhysicalNumber p1(100, Unit::M);
+    PhysicalNumber p2(200, Unit::CM);
+    PhysicalNumber p3(3, Unit::KM);
+    PhysicalNumber p4(60, Unit::SEC);
+    PhysicalNumber p5(60, Unit::MIN);
+    PhysicalNumber p6(1, Unit::HOUR);
+    PhysicalNumber p7(10, Unit::G);
+    PhysicalNumber p8(4, Unit::KG);
+    PhysicalNumber p9(1, Unit::TON);
+    // end for the variabales
+
     testcase
     .setname("Basic output")
     .CHECK_OUTPUT(a, "2[km]")
@@ -51,6 +64,30 @@ int main() {
 
     // YOUR TESTS - INSERT AS MANY AS YOU WANT
 
+      .CHECK_OUTPUT(p1, "100[m]")
+      .CHECK_OUTPUT(p2, "200[cm]")
+      .CHECK_OUTPUT(p3, "3[km]")
+      .CHECK_OUTPUT(p4, "60[sec]")
+      .CHECK_OUTPUT(p5, "60[min]")
+      .CHECK_OUTPUT(p6, "1[hour]")
+      .CHECK_OUTPUT(p7, "10[g]")
+      .CHECK_OUTPUT(p8, "4[kg]")
+      .CHECK_OUTPUT(p9, "1[ton]")
+      .CHECK_THROWS(p1+p4)
+      .CHECK_THROWS(p2+p5)
+      .CHECK_THROWS(p3+p6)
+      .CHECK_THROWS(p3>p7)
+      .CHECK_THROWS(p3>=p7)
+      .CHECK_THROWS(p3<p7)
+      .CHECK_THROWS(p3<=p7)
+      .CHECK_THROWS(p3==p7)
+      .CHECK_THROWS(p3+p6)
+      .CHECK_OK(istringstream("60[m]") >> p6)
+      .CHECK_EQUAL(p1+p2,PhysicalNumber(3,Unit::CM))
+      .CHECK_EQUAL(p4+p5,PhysicalNumber(61,Unit::MIN))
+      .CHECK_EQUAL(p6,PhysicalNumber(1,Unit::HOUR))
+
+      //
       .setname("...")
 
       .print(cout, /*show_grade=*/false);
