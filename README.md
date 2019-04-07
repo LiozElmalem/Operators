@@ -1,6 +1,8 @@
 # Operators
 
-![](https://i.stack.imgur.com/bqEv0.jpg)
+### Lioz elmalem - 205804693
+
+### Bar genish - 313174583
 
 
 https://www.geeksforgeeks.org/operators-c-c/
