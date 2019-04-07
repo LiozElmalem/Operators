@@ -1,4 +1,8 @@
 # Operators
+
+![](https://i.stack.imgur.com/bqEv0.jpg)
+
+
 https://www.geeksforgeeks.org/operators-c-c/
 
 
