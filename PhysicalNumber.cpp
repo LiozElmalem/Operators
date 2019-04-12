@@ -6,8 +6,7 @@ using ariel::PhysicalNumber;
 
 
 PhysicalNumber::PhysicalNumber(double num,Unit un):n(num),unit(un){}
-PhysicalNumber::~PhysicalNumber(){//להוסיף
-}
+
 string get_string_unit(PhysicalNumber l){ // return the type name
 int x = l.get_unit();
 switch (x) {
@@ -223,13 +222,14 @@ PhysicalNumber& ariel::PhysicalNumber::operator ++(){
   return *this;
 }
 
-const PhysicalNumber ariel::PhysicalNumber::operator ++(int){
-  PhysicalNumber temp(*this);
+const PhysicalNumber& ariel::PhysicalNumber::operator ++(int){
+  PhysicalNumber temp(n,unit);
   set_number(n++);
-  return temp;}
+  return temp;
+}
 
-const PhysicalNumber ariel::PhysicalNumber::operator --(int){
-  PhysicalNumber temp(*this);
+const PhysicalNumber& ariel::PhysicalNumber::operator --(int){
+  PhysicalNumber temp(n,unit);
   set_number(n--);
   return temp;
 }
@@ -299,7 +299,12 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   if(p1 == -1 || p2 == -1 || p1 > p2) throw std::invalid_argument("Exception");
   string num = s.substr(0,p1);
   string unit = s.substr(p1+1 ,p2 - p1 - 1);
+  try{
   n_ = stod(num);
+  }
+  catch(exception& e){
+    cout << e.what() << endl;
+  }
   // LENGTH
   if( unit.compare("km") == 0 ) un_ = Unit::KM;
   else if( unit.compare("m") == 0 ) un_ = Unit::M;

@@ -13,8 +13,7 @@ class PhysicalNumber{
   public:
     //constructors
      PhysicalNumber(double n,ariel::Unit unit);
-     ~PhysicalNumber();
-
+     
      //operators:
      friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
      friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
@@ -24,8 +23,8 @@ class PhysicalNumber{
      friend bool operator != (const PhysicalNumber& l,const PhysicalNumber& r);
      PhysicalNumber& operator ++();
      PhysicalNumber& operator --();
-     const PhysicalNumber operator ++(int);
-     const PhysicalNumber operator --( int);
+     const PhysicalNumber& operator ++(int);
+     const PhysicalNumber& operator --( int);
      friend PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
   	 friend PhysicalNumber operator += (PhysicalNumber& l,const PhysicalNumber& r);
   	 friend PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
