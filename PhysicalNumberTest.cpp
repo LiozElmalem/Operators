@@ -130,7 +130,7 @@ int main() {
 
     .setname("Operator '-=' binary - Compatible dimensions")
     .CHECK_OUTPUT((a1-=a2), "2[cm]")                                  //a1 = 300002[cm] - 300000[cm]
-    .CHECK_OUTPUT((b1-=b3), "2[sec]")                                 //b1 = 14402[sec] - 4[hour]
+    .CHECK_OUTPUT((b1-=b3), "-178[sec]")                                 //b1 = 14402[sec] - 4[hour]
     .CHECK_OUTPUT((b3-=b2), "4[hour]")                                //b3 = 4.05[hour] - 3[min]
     .CHECK_OUTPUT((c1-=c4), "2[g]")                                   //c1 = 100002[g] - 0.1[ton]
     .CHECK_OUTPUT((c2-=c2), "0[kg]")                                  //c2 = 6[kg] - 6[kg]
