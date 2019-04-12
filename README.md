@@ -24,3 +24,4 @@ An operator is a symbol that tells the compiler to perform specific mathematical
     Misc Operators
 
 This chapter will examine the arithmetic, relational, logical, bitwise, assignment and other operators one by one.
+
