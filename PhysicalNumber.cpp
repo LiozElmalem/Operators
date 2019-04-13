@@ -222,16 +222,16 @@ PhysicalNumber& ariel::PhysicalNumber::operator ++(){
   return *this;
 }
 
-const PhysicalNumber& ariel::PhysicalNumber::operator ++(int){
-  PhysicalNumber temp(n,unit);
+PhysicalNumber ariel::PhysicalNumber::operator ++(int){
+  int n_ = n;
   set_number(n++);
-  return temp;
+  return PhysicalNumber(n_,unit);
 }
 
-const PhysicalNumber& ariel::PhysicalNumber::operator --(int){
-  PhysicalNumber temp(n,unit);
+PhysicalNumber ariel::PhysicalNumber::operator --(int){
+  int n_ = n;
   set_number(n--);
-  return temp;
+  return PhysicalNumber(n_,unit);
 }
 
 PhysicalNumber& ariel::PhysicalNumber::operator --(){
@@ -297,8 +297,8 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   int p1 = s.find('[');
   int p2 = s.find(']');
   if(p1 == -1 || p2 == -1 || p1 > p2) throw std::invalid_argument("Exception");
-  string num = s.substr(0,p1);
-  string unit = s.substr(p1+1 ,p2 - p1 - 1);
+  string num = s.substr(0,p1); // from the start to [
+  string unit = s.substr(p1+1 ,p2 - p1 - 1); // from [ to ]
   try{
   n_ = stod(num);
   }

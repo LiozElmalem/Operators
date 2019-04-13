@@ -6,6 +6,23 @@ using namespace std;
 
 namespace ariel{
 class PhysicalNumber{
+
+  // friendly class operators
+  friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend bool operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend bool operator <= (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend bool operator == (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend bool operator != (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend PhysicalNumber operator += (PhysicalNumber& l,const PhysicalNumber& r);
+  friend PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
+  friend PhysicalNumber operator - (const PhysicalNumber& l);
+  friend PhysicalNumber operator + (const PhysicalNumber& l);
+  friend PhysicalNumber operator -= (PhysicalNumber& l,const PhysicalNumber& r);
+  friend istream& operator >> (istream & is,PhysicalNumber& f);
+  friend ostream& operator <<(ostream & os,const PhysicalNumber& f);
+
    private:
      // private members
      Unit unit;
@@ -13,28 +30,11 @@ class PhysicalNumber{
   public:
     //constructors
      PhysicalNumber(double n,ariel::Unit unit);
-     
-     //operators:
-     friend bool operator > (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend bool operator < (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend bool operator >= (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend bool operator <= (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend bool operator == (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend bool operator != (const PhysicalNumber& l,const PhysicalNumber& r);
+     //public operators
      PhysicalNumber& operator ++();
      PhysicalNumber& operator --();
-     const PhysicalNumber& operator ++(int);
-     const PhysicalNumber& operator --( int);
-     friend PhysicalNumber operator + (const PhysicalNumber& l,const PhysicalNumber& r);
-  	 friend PhysicalNumber operator += (PhysicalNumber& l,const PhysicalNumber& r);
-  	 friend PhysicalNumber operator - (const PhysicalNumber& l,const PhysicalNumber& r);
-     friend PhysicalNumber operator - (const PhysicalNumber& l);
-     friend PhysicalNumber operator + (const PhysicalNumber& l);
-  	 friend PhysicalNumber operator -= (PhysicalNumber& l,const PhysicalNumber& r);
-     friend istream& operator >> (istream & is,PhysicalNumber& f);
-     friend ostream& operator <<(ostream & os,const PhysicalNumber& f);
-
-
+     PhysicalNumber operator ++(int);
+     PhysicalNumber operator --( int);
      // assisting function
      double cast_it_to(ariel::Unit to_type) const;
      string get_type(const PhysicalNumber& l); // return LENGTH||TIME||WEIGHT
@@ -42,6 +42,5 @@ class PhysicalNumber{
      double get_number() const{return n;} // return the original value
      void set_number(double number){n=number;}
      string get_string_unit(const PhysicalNumber& l); // return M,CM..HOUR..TON
-     double caster(const PhysicalNumber& l); // to compare between to physical number "power"
 };
 };

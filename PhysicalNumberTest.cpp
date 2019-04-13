@@ -130,7 +130,7 @@ int main() {
 
     .setname("Operator '-=' binary - Compatible dimensions")
     .CHECK_OUTPUT((a1-=a2), "2[cm]")                                  //a1 = 300002[cm] - 300000[cm]
-    .CHECK_OUTPUT((b1-=b3), "-178[sec]")                                 //b1 = 14402[sec] - 4[hour]
+    .CHECK_OUTPUT((b1-=b3), "2[sec]")                                 //b1 = 14402[sec] - 4[hour]
     .CHECK_OUTPUT((b3-=b2), "4[hour]")                                //b3 = 4.05[hour] - 3[min]
     .CHECK_OUTPUT((c1-=c4), "2[g]")                                   //c1 = 100002[g] - 0.1[ton]
     .CHECK_OUTPUT((c2-=c2), "0[kg]")                                  //c2 = 6[kg] - 6[kg]
@@ -222,12 +222,12 @@ int main() {
 
 
     .setname("Operator '--(postfix)' unary - Compatible dimensions")
-    .CHECK_OUTPUT(a1--,"2[cm]")                                       //3[cm]-- = 2[cm]
-    .CHECK_OUTPUT(a2--,"3[km]")                                       //4[km]-- = 3[cm]
-    .CHECK_OUTPUT(a3--,"4[m]")                                        //5[m]-- = 4[m]
-    .CHECK_OUTPUT(a4--,"0.1[km]")                                     //1.1[km]-- = 0.1[km]
-    .CHECK_OUTPUT(PhysicalNumber(60,Unit::MIN)--,"59[min]")           //60[min]-- = 59[min]
-    .CHECK_OUTPUT(PhysicalNumber(99,Unit::SEC)--,"98[sec]")          //99[sec]-- = 98[sec]
+    .CHECK_OUTPUT(a1--,"3[cm]")                                       //3[cm]-- = 2[cm]
+    .CHECK_OUTPUT(a2--,"4[km]")                                       //4[km]-- = 3[cm]
+    .CHECK_OUTPUT(a3--,"5[m]")                                        //5[m]-- = 4[m]
+    .CHECK_OUTPUT(a4--,"1.1[km]")                                     //1.1[km]-- = 0.1[km]
+    .CHECK_OUTPUT(PhysicalNumber(60,Unit::MIN)--,"60[min]")           //60[min]-- = 59[min]
+    .CHECK_OUTPUT(PhysicalNumber(99,Unit::SEC)--,"99[sec]")          //99[sec]-- = 98[sec]
 
 
     .setname("Operator '(prefix)++' unary - Compatible dimensions")
