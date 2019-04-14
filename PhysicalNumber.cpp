@@ -313,11 +313,7 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   double n_;
   int p1 = s.find('[');
   int p2 = s.find(']');
-  if(p1 == -1 || p2 == -1 || p1 > p2) {
-   auto errorState = is.rdstate();
-   is.clear(errorState);
-    return is;
-  } 
+  if(p1 == -1 || p2 == -1 || p1 > p2) return is;
   string num = s.substr(0,p1); // from the start to [
   string unit = s.substr(p1+1 ,p2 - p1 - 1); // from [ to ]
   try{
@@ -338,7 +334,7 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   else if( unit.compare("ton") == 0 ) un_ = Unit::TON;
   else if( unit.compare("kg") == 0 ) un_ = Unit::KG;
   else if( unit.compare("g") == 0 ) un_ = Unit::G;
-
+  else return is;
   f.unit = un_;
   f.n = n_;
   return is;
