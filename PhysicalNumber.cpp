@@ -357,6 +357,6 @@ return "";
 }
 //
 ostream& ariel::operator <<(ostream & os,const PhysicalNumber& f){
-  os << setprecision(11) << f.n << "[" << un(f) << "]";
+  os << f.n << "[" << un(f) << "]";
   return os;
 }
