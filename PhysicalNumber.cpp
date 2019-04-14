@@ -30,8 +30,45 @@ string get_type(const PhysicalNumber& l){ // return the class of the type
   return "";
 }
 
+bool isSameType(ariel::Unit u1 , ariel::Unit u2){
+  bool ans = false;
+  if(u1 == 0 && u2 == 0 || u1 == 0 && u2 == 1 || u1 == 0 && u2 == 2){
+    ans = true;
+  }
+  if(u1 == 1 && u2 == 0 || u1 == 1 && u2 == 1 || u1 == 1 && u2 == 2){
+    ans = true;
+  }
+  if(u1 == 2 && u2 == 0 || u1 == 2 && u2 == 1 || u1 == 2 && u2 == 2){
+    ans = true;
+  }
+  if(u1 == 3 && u2 == 3 || u1 == 3 && u2 == 4 || u1 == 3 && u2 == 5){
+    ans = true;
+  }
+  
+  if(u1 == 4 && u2 == 3 || u1 == 4 && u2 == 4 || u1 == 4 && u2 == 5){
+    ans = true;
+  }
+  
+  if(u1 == 5 && u2 == 3 || u1 == 5 && u2 == 4 || u1 == 5 && u2 == 5){
+    ans = true;
+  }
+  
+  if(u1 == 6 && u2 == 6 || u1 == 6 && u2 == 7 || u1 == 6 && u2 == 8){
+    ans = true;
+  }
+  
+  if(u1 == 7 && u2 == 6 || u1 == 7 && u2 == 7 || u1 == 7 && u2 == 8){
+    ans = true;
+  }
+  
+  if(u1 == 8 && u2 == 6 || u1 == 8 && u2 == 7 || u1 == 8 && u2 == 8){
+    ans = true;
+  }
+  return ans;
+} 
+
 double ariel::PhysicalNumber::cast_it_to(ariel::Unit to_type) const{
-  if(abs(unit-to_type) <= 2)  throw std::invalid_argument("Exception,they must be from the same type");
+  if(!isSameType(unit,to_type))  throw std::invalid_argument("Exception,they must be from the same type");
   double ans = 0;
   double x = n;
   switch (unit) {
