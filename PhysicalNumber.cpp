@@ -240,13 +240,13 @@ PhysicalNumber& ariel::PhysicalNumber::operator ++(){
 }
 
 PhysicalNumber ariel::PhysicalNumber::operator ++(int){
-  int n_ = n;
+  double n_ = n;
   n++;
   return PhysicalNumber(n_,unit);
 }
 
 PhysicalNumber ariel::PhysicalNumber::operator --(int){
-  int n_ = n;
+  double n_ = n;
   n--;
   return PhysicalNumber(n_,unit);
 }
