@@ -313,7 +313,7 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   double n_;
   int p1 = s.find('[');
   int p2 = s.find(']');
-  if(p1 == -1 || p2 == -1 || p1 > p2) exit(0);
+  if(p1 == -1 || p2 == -1 || p1 > p2) return is; 
   string num = s.substr(0,p1); // from the start to [
   string unit = s.substr(p1+1 ,p2 - p1 - 1); // from [ to ]
   try{
