@@ -8,7 +8,7 @@
 https://www.geeksforgeeks.org/operators-c-c/
 
 
-this repository present simple using in operators in cpp language.
+This repository present simple using in operators in cpp language.
 according to the operators tutorial and my code ,everyone can see the 
 operator's importance in it using.
 this function (operator) give us the abillity to basic actions on complicate 
