@@ -322,6 +322,7 @@ istream& ariel::operator >> (istream & is,PhysicalNumber& f){
   catch(exception& e){
     cout << e.what() << endl;
   }
+  if(num.compare("")==0)return is;
   // LENGTH
   if( unit.compare("km") == 0 ) un_ = Unit::KM;
   else if( unit.compare("m") == 0 ) un_ = Unit::M;
