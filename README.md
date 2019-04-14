@@ -25,3 +25,6 @@ An operator is a symbol that tells the compiler to perform specific mathematical
 
 This chapter will examine the arithmetic, relational, logical, bitwise, assignment and other operators one by one.
 
+Our Grade:
+[](https://github.com/Elmalem/CPP-Assigments/blob/master/%E2%80%8F%E2%80%8FGrades.JPG?raw=true)
+
