@@ -31,6 +31,7 @@ string get_type(const PhysicalNumber& l){ // return the class of the type
 }
 
 double ariel::PhysicalNumber::cast_it_to(ariel::Unit to_type) const{
+  if(abs(unit-to_type) <= 2)  throw std::invalid_argument("Exception,they must be from the same type");
   double ans = 0;
   double x = n;
   switch (unit) {
@@ -218,24 +219,24 @@ bool ariel::operator != (const PhysicalNumber& l,const PhysicalNumber& r){
 }
 
 PhysicalNumber& ariel::PhysicalNumber::operator ++(){
-  set_number(++n);
+  ++n;
   return *this;
 }
 
 PhysicalNumber ariel::PhysicalNumber::operator ++(int){
   int n_ = n;
-  set_number(n++);
+  n++;
   return PhysicalNumber(n_,unit);
 }
 
 PhysicalNumber ariel::PhysicalNumber::operator --(int){
   int n_ = n;
-  set_number(n--);
+  n--;
   return PhysicalNumber(n_,unit);
 }
 
 PhysicalNumber& ariel::PhysicalNumber::operator --(){
-  set_number(--n);
+  --n;
   return *this;
 }
 
